@@ -1,10 +1,10 @@
-import React from 'react';
-import { Card, CardHeader, CardTitle } from '../shadcn/ui/card';
+import React from 'react'
+import { Card, CardHeader, CardTitle } from '../shadcn/ui/card'
 
 const CardDirk = ({ index, dikr }) => {
   setTimeout(() => {
-    console.log(index);
-  }, 9999999999999999999999999999999);
+    console.log(index)
+  }, 9999999999999999999999999999999)
   return (
     <div>
       <Card>
@@ -13,7 +13,7 @@ const CardDirk = ({ index, dikr }) => {
         </CardHeader>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default CardDirk;
+export default CardDirk

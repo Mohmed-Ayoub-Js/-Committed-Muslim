@@ -23,8 +23,10 @@ function withPrototype(obj: Record<string, any>) {
 }
 
 // --------- Preload scripts loading ---------
-function domReady(condition: DocumentReadyState[] = ['complete', 'interactive']) {
-  return new Promise(resolve => {
+function domReady(
+  condition: DocumentReadyState[] = ['complete', 'interactive'],
+) {
+  return new Promise((resolve) => {
     if (condition.includes(document.readyState)) {
       resolve(true)
     } else {
@@ -39,12 +41,12 @@ function domReady(condition: DocumentReadyState[] = ['complete', 'interactive'])
 
 const safeDOM = {
   append(parent: HTMLElement, child: HTMLElement) {
-    if (!Array.from(parent.children).find(e => e === child)) {
+    if (!Array.from(parent.children).find((e) => e === child)) {
       parent.appendChild(child)
     }
   },
   remove(parent: HTMLElement, child: HTMLElement) {
-    if (Array.from(parent.children).find(e => e === child)) {
+    if (Array.from(parent.children).find((e) => e === child)) {
       parent.removeChild(child)
     }
   },
@@ -65,13 +67,16 @@ function useLoading() {
   75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
   100% { transform: perspective(100px) rotateX(0) rotateY(0); }
 }
+
 .${className} > div {
   animation-fill-mode: both;
-  width: 50px;
-  height: 50px;
-  background: #fff;
+  width: 90px;
+  height: 90px;
+  background: url('./icon.webp') center center no-repeat;
+  background-size: cover;
   animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
 }
+
 .app-loading-wrap {
   position: fixed;
   top: 0;
@@ -84,7 +89,7 @@ function useLoading() {
   background: #282c34;
   z-index: 9;
 }
-    `
+  `
   const oStyle = document.createElement('style')
   const oDiv = document.createElement('div')
 
@@ -110,7 +115,7 @@ function useLoading() {
 const { appendLoading, removeLoading } = useLoading()
 domReady().then(appendLoading)
 
-window.onmessage = ev => {
+window.onmessage = (ev) => {
   ev.data.payload === 'removeLoading' && removeLoading()
 }
 
