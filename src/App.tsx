@@ -2,6 +2,7 @@ import './App.css'
 import React, { useState } from 'react'
 import Home from './home/Page'
 import Quran from './quran/Page'
+import TextQuran from './Surah/Page'
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<string>('home')
   const navigateToPage = (page: string) => {
@@ -41,7 +42,21 @@ const App: React.FC = () => {
             </p>
           </div>
         )
-
+      case 'read':
+        return (
+          <div>
+            <div className="hidden md:block">
+              <TextQuran change={navigateToPage} />
+            </div>
+            <p className="text-3xl font-bold text-red-500 md:hidden">
+              يرجى تكبير الشاشة
+            </p>
+            <p className="text-1xl text-gray-600 md:hidden">
+              لا يمكن تنسيق التطبيق في حجم شاشة صغير جدا ، خاصة وان هذا التطبيق
+              موجه الى اجهزة الكمبيوتر
+            </p>
+          </div>
+        )
       default:
         return <div>صفحة غير معروفة</div>
     }

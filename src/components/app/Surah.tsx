@@ -15,8 +15,12 @@ import {
 } from '@/components/shadcn/ui/hover-card'
 import { Button } from '../shadcn/ui/button'
 
-const Surah = () => {
+const Surah = ({ change }) => {
   const [app, setApp] = useState(data)
+  const getData = (count: any) => {
+    localStorage.setItem('last', count)
+    change('read')
+  }
   return (
     <div className="grid grid-cols-4 gap-5 p-10">
       {app.map((item, index) => (
@@ -52,7 +56,14 @@ const Surah = () => {
                 سورة {item.titleAr}
               </p>
               <p className="flex justify-center items-center flex-row gap-6">
-                <Button className={undefined}>قراءة</Button>
+                <Button
+                  className={undefined}
+                  onClick={() => {
+                    getData(item.index)
+                  }}
+                >
+                  قراءة
+                </Button>
                 <Button className={undefined} variant={'outline'}>
                   الاستماع
                 </Button>
