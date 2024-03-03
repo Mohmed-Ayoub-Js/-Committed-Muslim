@@ -16,7 +16,7 @@ const Quran = ({ change }) => {
         </ResizablePanel>
         <ResizableHandle />
         <ResizablePanel defaultSize={80}>
-          <Surah />
+          <Surah change={change} />
         </ResizablePanel>
       </ResizablePanelGroup>
     </div>

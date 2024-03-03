@@ -124,7 +124,8 @@ const NavBar = ({ change }) => {
         <div key={index} onClick={item.link}>
           <Button
             variant="outline"
-            className="w-[200px] mt-2 mb-2 p-3 hover:bg-black hover:text-white flex justify-between items-center flex-row"
+            style={{ transition: '0.5s' }}
+            className="w-[200px] hover:scale-105 mt-2 mb-2 p-3 hover:bg-black hover:text-white flex justify-between items-center flex-row"
           >
             <p>{item.icon}</p>
             {item.title}
